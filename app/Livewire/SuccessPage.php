@@ -20,9 +20,11 @@ class SuccessPage extends Component
 
     public function render()
     {
-        $latest_order = Order::where('user_id', auth()->user()->id) // Fetch orders for the authenticated user
+        $latest_order = Order::with('items.product') // Eager load items and their associated products
+        ->where('user_id', auth()->user()->id) // Fetch orders for the authenticated user
         ->latest() // Get the most recent order
         ->first(); // Fetch only the latest record
+        $user = auth()->user();
 
         if ($this->session_id){
             Stripe::setApiKey('sk_test_51QMlThRsipeZzuAL1wWUQar1DqVEUzMusg8nPcfVNCkGZCPqr2HJS9CYYkDtlLcCnlNtW9vNAGZFoyaKchAiZJbP00lt9HoEvu');
@@ -37,9 +39,11 @@ class SuccessPage extends Component
                 $latest_order->save();
                 
             }
+           
         }
         return view('livewire.success-page', [
-            'order' => $latest_order
+            'order' => $latest_order,
+            'user' => $user,
         ]);
     }
 }
