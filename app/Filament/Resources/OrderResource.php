@@ -6,6 +6,7 @@ use App\Filament\Resources\OrderResource\Pages;
 use App\Models\Order;
 use App\Models\Product;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
@@ -87,6 +88,13 @@ class OrderResource extends Resource
                             ]),
 
                         Textarea::make('notes')->columnSpanFull(),
+
+                        DatePicker::make('claim_date')
+                        ->label('Claim Date')
+                        ->required()
+                        ->dehydrated()
+                        ->minDate(now()),
+
                     ])->columns(2),
 
                     Section::make('Order Items')->schema([

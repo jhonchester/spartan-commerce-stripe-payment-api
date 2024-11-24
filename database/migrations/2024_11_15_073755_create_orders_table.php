@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('status', ['new', 'processing', 'completed', 'declined', 'canceled'])->default('new');
             $table->string('currency')->nullable();
             $table->text('note')->nullable();
+            $table->date('claim_date')->nullable();
             $table->timestamps();
         });
     }

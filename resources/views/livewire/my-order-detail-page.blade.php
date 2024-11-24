@@ -55,10 +55,35 @@
         </div>
       </div>
     </div>
+    <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-800">
+      <div class="p-4 md:p-5 flex gap-x-4">
+        <div class="flex-shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-gray-800">
+          <svg class="flex-shrink-0 size-5 text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 22h14" />
+            <path d="M5 2h14" />
+            <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22" />
+            <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2" />
+          </svg>
+        </div>
+
+        <div class="grow">
+          <div class="flex items-center gap-x-2">
+            <p class="text-xs uppercase tracking-wide text-gray-500">
+              Scheduled Date To Claim
+            </p>
+          </div>
+          <div class="mt-1 flex items-center gap-x-2">
+            <h3 class="text-xl font-medium text-gray-800 dark:text-gray-200">
+              {{ $formatted_claim_date }}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- End Card -->
 
     <!-- Card -->
-    <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-800">
+    {{-- <div class="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-800">
       <div class="p-4 md:p-5 flex gap-x-4">
         <div class="flex-shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg dark:bg-gray-800">
           <svg class="flex-shrink-0 size-5 text-gray-600 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -90,7 +115,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
     <!-- End Card -->
 
     <!-- Card -->
@@ -187,6 +212,9 @@
           </div>
         </div>
       </div>
+      
+      
+      
 
     </div>
     <div class="md:w-1/4">
@@ -205,5 +233,7 @@
 
       </div>
     </div>
+    
   </div>
+  
 </div>
