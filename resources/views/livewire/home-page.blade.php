@@ -15,8 +15,11 @@
               <path d="m9 18 6-6-6-6" />
             </svg>
           </a>
-          <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/contact">
-            Contact Us
+          <a class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 " href="/admin">
+            Admin
+            <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
+            </svg>
           </a>
         </div>
         <!-- End Buttons -->
@@ -77,9 +80,7 @@
         </div>
       </div>
       <p class="mb-12 text-base text-center text-gray-500">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus magni eius eaque?
-        Pariatur
-        numquam, odio quod nobis ipsum ex cupiditate?
+        Explore a wide variety of categories tailored to your interests and needs. Discover new products, services, and resources that match your preferences and make your experience even better.
       </p>
     </div>
   </div>
@@ -134,9 +135,9 @@
           </div>
         </div>
         <p class="mb-12 text-base text-center text-gray-500">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus magni eius eaque?
-          Pariatur
-          numquam, odio quod nobis ipsum ex cupiditate?
+          Our development team is composed of dedicated students who bring innovative ideas and 
+          solutions to the table. We are committed to learning and growing while 
+          contributing to the success of our projects, ensuring quality and efficiency in every step.
         </p>
       </div>
     </div>
@@ -144,66 +145,80 @@
     <div class="py-6 bg-transparent rounded-md dark:bg-transparent border-0">
       <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
         <div class="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-lg dark:bg-gray-800">
-          <img src="https://i.postimg.cc/4NMZPYdh/pexels-dinielle-de-veyra-4195342.jpg" alt="Developer 5" class="w-24 h-24 rounded-full object-cover mb-4 mt-12">
+          <img src="{{ asset('images/spartan.png') }}" alt="Spartan" class="w-24 h-24 rounded-full object-cover mb-4 mt-12">
           <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Array Out Of Bounds</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-center">
+            A team that pushes beyond the limits, much like an array exceeding its bounds. We tackle challenges with creativity and precision to deliver innovative software solutions.</p>
         </div>
         <!-- Developer 1 -->
           <div class="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-lg dark:bg-gray-800">
-              <img src="https://i.postimg.cc/4NMZPYdh/pexels-dinielle-de-veyra-4195342.jpg" alt="Developer 1" class="w-24 h-24 rounded-full object-cover mb-4">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Chester</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-400">Java Programmer</p>
-              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Experienced in building robust backend systems and software solutions.</p>
+              <img src="{{ asset('images/chester.jpg') }}" alt="Developer 1" class="w-24 h-24 rounded-full object-cover mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Jhon Chester Guijoba</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Project Manager, Programmer, Designer</p>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-justify">
+                Oversees development timelines and team coordination. Specializes in building robust backend systems and software solutions. 
+                And Applies modern design principles to create intuitive user interfaces and enhance user experiences.
+              </p>
               <div class="flex space-x-4 mt-4">
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">Portfolio</a>
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">LinkedIn</a>
+                  
+                  <a href="https://www.facebook.com/chesterguijoba" class="text-blue-500 dark:text-blue-400 hover:underline">Facebook</a>
               </div>
           </div>
   
           <!-- Developer 2 -->
           <div class="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-lg dark:bg-gray-800">
-              <img src="https://i.postimg.cc/4NMZPYdh/pexels-dinielle-de-veyra-4195342.jpg" alt="Developer 2" class="w-24 h-24 rounded-full object-cover mb-4">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Maria</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-400">Frontend Developer</p>
-              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Skilled in React, Vue.js, and creating beautiful user interfaces.</p>
+              <img src="{{ asset('images/gerald.jpg') }}" alt="Developer 2" class="w-24 h-24 rounded-full object-cover mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Gerald Diasanta</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-400">System Analyst</p>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-justify">
+                Evaluates and designs information systems to meet business needs. Also, Gather requirements, analyze data, and collaborate 
+                with stakeholders to develop efficient solutions that improve organizational processes and systems performance.</p>
               <div class="flex space-x-4 mt-4">
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">Portfolio</a>
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">LinkedIn</a>
+                  
+                  <a href="https://www.facebook.com/dlarxxu.istiguuu" class="text-blue-500 dark:text-blue-400 hover:underline">Facebook</a>
               </div>
           </div>
   
           <!-- Developer 3 -->
           <div class="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-lg dark:bg-gray-800">
-              <img src="https://i.postimg.cc/4NMZPYdh/pexels-dinielle-de-veyra-4195342.jpg" alt="Developer 3" class="w-24 h-24 rounded-full object-cover mb-4">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">John</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-400">UI/UX Designer</p>
-              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Passionate about user-centered design and creating seamless experiences.</p>
+              <img src="{{ asset('images/zaki.jpg') }}" alt="Developer 3" class="w-24 h-24 rounded-full object-cover mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Zaki Llana</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Documenter</p>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-justify">
+                Responsible for creating clear, detailed documentation to ensure that project requirements, processes, and outcomes are effectively communicated. Also, excels in organizing 
+                complex information into easy-to-understand formats, ensuring that all team members and stakeholders are aligned.
+              </p>
               <div class="flex space-x-4 mt-4">
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">Portfolio</a>
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">LinkedIn</a>
+                  
+                  <a href="https://www.facebook.com/zaki.llana.7?mibextid=LQQJ4d&rdid=RSNjGNKHuvTKs0P3&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FhvrBN8b22LPXEFne%2F%3Fmibextid%3DLQQJ4d" class="text-blue-500 dark:text-blue-400 hover:underline">Facebook</a>
               </div>
           </div>
   
           <!-- Developer 4 -->
           <div class="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-lg dark:bg-gray-800">
-              <img src="https://i.postimg.cc/4NMZPYdh/pexels-dinielle-de-veyra-4195342.jpg" alt="Developer 4" class="w-24 h-24 rounded-full object-cover mb-4">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Ella</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-400">Backend Developer</p>
-              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Expert in Node.js, Python, and building scalable server-side applications.</p>
+              <img src="{{ asset('images/lei.jpg') }}" alt="Developer 4" class="w-24 h-24 rounded-full object-cover mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Lei Charles Doria</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-400">QA Tester</p>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-justify">
+                Responsible for ensuring the quality and functionality of software applications, actively performs detailed tests, identifies bugs, and works closely with the development team to ensure issues are quickly resolved, consistently ensuring a smooth user experience and high-quality product delivery.</p>
               <div class="flex space-x-4 mt-4">
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">Portfolio</a>
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">LinkedIn</a>
+                  
+                  <a href="https://www.facebook.com/leicharlesm.doria?mibextid=LQQJ4d&rdid=mOU0Xza4qzyVBH3u&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F15ZgW3hbRJ%2F%3Fmibextid%3DLQQJ4d" class="text-blue-500 dark:text-blue-400 hover:underline">Facebook</a>
               </div>
           </div>
   
           <!-- Developer 5 -->
           <div class="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-lg dark:bg-gray-800">
-              <img src="https://i.postimg.cc/4NMZPYdh/pexels-dinielle-de-veyra-4195342.jpg" alt="Developer 5" class="w-24 h-24 rounded-full object-cover mb-4">
-              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Alex</h3>
-              <p class="text-xs text-gray-500 dark:text-gray-400">Full-Stack Developer</p>
-              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Experienced in both front-end and back-end development, specializing in MERN stack.</p>
+              <img src="{{ asset('images/ac.jpg') }}" alt="Developer 5" class="w-24 h-24 rounded-full object-cover mb-4">
+              <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">John Adrian Christopher Flores</h3>
+              <p class="text-xs text-gray-500 dark:text-gray-400">Documenter</p>
+              <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-justify">
+                Responsible for creating clear, detailed documentation to ensure that project requirements, processes, and outcomes are effectively communicated. Also, excels in organizing 
+                complex information into easy-to-understand formats, ensuring that all team members and stakeholders are aligned.
+              </p>
               <div class="flex space-x-4 mt-4">
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">Portfolio</a>
-                  <a href="#" class="text-blue-500 dark:text-blue-400 hover:underline">LinkedIn</a>
+                
+                  <a href="https://www.facebook.com/profile.php?id=61555836917547" class="text-blue-500 dark:text-blue-400 hover:underline">Facebook</a>
               </div>
           </div>
           

@@ -25,8 +25,11 @@ class MyOrderDetailPage extends Component
     $user = auth()->user();
 
     // Format the claim date if it's not null
-    $formatted_claim_date = optional($order->claim_date) ? Carbon::parse($order->claim_date)->format('d-m-Y') : 'No claim date';
-
+    $formatted_claim_date = optional($order->claim_date) 
+    ? (Carbon::parse($order->claim_date)->isToday() 
+        ? 'Pending date' 
+        : Carbon::parse($order->claim_date)->format('d-m-Y')) 
+    : 'No claim date';
     // Debugging step: Check if the value is correct before passing to the view
    // dd($order->claim_date, $formatted_claim_date);
 

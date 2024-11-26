@@ -8,7 +8,8 @@
             <thead>
               <tr>
                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Order</th>
-                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Date</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Date of Order</th>
+                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Date to Claim</th>
                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Order Status</th>
                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Payment Status</th>
                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Order Amount</th>
@@ -43,7 +44,16 @@
                   <tr class="odd:bg-white even:bg-gray-100 dark:odd:bg-slate-900 dark:even:bg-slate-800" wire:key='{{$order->id}}'>
                       <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">{{$order->id}}</td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">{{$order->created_at->format('d-m-y')}}</td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                      <td>
+                        @php
+                            $formattedClaimDate = optional($order->claim_date)
+                                ? (\Carbon\Carbon::parse($order->claim_date)->isToday()
+                                    ? 'Pending date'
+                                    : \Carbon\Carbon::parse($order->claim_date)->format('d-m-Y'))
+                                : 'No claim date';
+                        @endphp
+                        {{ $formattedClaimDate }}
+                    </td>                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                           {!! $status !!}
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
