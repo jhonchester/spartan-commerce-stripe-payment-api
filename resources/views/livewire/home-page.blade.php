@@ -145,7 +145,7 @@
     <div class="py-6 bg-transparent rounded-md dark:bg-transparent border-0">
       <div class="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
         <div class="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-lg dark:bg-gray-800">
-          <img src="{{ asset('images/spartan.png') }}" alt="Spartan" class="w-24 h-24 rounded-full object-cover mb-4 mt-12">
+          <img src="{{ asset('images/logo.png') }}" alt="Spartan" class="w-24 h-24 rounded-full object-cover mb-4 mt-12">
           <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Array Out Of Bounds</h3>
           <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-center">
             A team that pushes beyond the limits, much like an array exceeding its bounds. We tackle challenges with creativity and precision to deliver innovative software solutions.</p>

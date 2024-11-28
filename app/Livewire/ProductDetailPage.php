@@ -8,6 +8,8 @@ use App\Models\Product;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\Attributes\Title;
+
+
 #[Title('Product Detail Page | Spartan Commerce')]
 class ProductDetailPage extends Component
 {

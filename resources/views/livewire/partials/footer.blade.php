@@ -53,7 +53,7 @@
       <div class="flex justify-between items-center">
         <p class="text-sm text-gray-400">© 2024 ArrayOutofBounds. All rights reserved. Credits: 
           <span>Icons used under the <a href="https://www.w3.org/" target="_blank" class="text-blue-500 hover:underline">W3C</a> license, and 
-          <a href="https://www.youtube.com/@DCodeMania" target="_blank" class="text-blue-500 hover:underline">Dcode Mania</a>. for some code template.</span>
+          <a href="https://www.youtube.com/@DCodeMania" target="_blank" class="text-blue-500 hover:underline">Dcode Mania</a> for some code template.</span>
         </p>
       </div>
       <!-- End Col -->

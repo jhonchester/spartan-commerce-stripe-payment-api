@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\MyAccount;
+
 use App\Livewire\Auth\ForgotPasswordPage;
 use App\Livewire\Auth\LoginPage;
 use App\Livewire\Auth\RegisterPage;
@@ -16,6 +17,7 @@ use App\Livewire\ProductDetailPage;
 use App\Livewire\ProductsPage;
 use App\Livewire\SuccessPage;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', HomePage::class);
 
