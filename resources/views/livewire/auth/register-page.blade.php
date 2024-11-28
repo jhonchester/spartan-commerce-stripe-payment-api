@@ -77,6 +77,22 @@
 
 
               <button type="submit" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">Sign up</button>
+              
+                <!-- Divider -->
+                <div class="flex items-center gap-x-2 whitespace-nowrap">
+                  <hr class="w-full border-t border-gray-300 dark:border-gray-600">
+                  <span class="text-sm font-medium text-gray-500 dark:text-gray-400">or continue with</span>
+                  <hr class="w-full border-t border-gray-300 dark:border-gray-600">
+                </div>
+              
+                <!-- Google Sign In Button -->
+                <a 
+                  href="{{ route('google-auth') }}" 
+                  class="w-full py-3 px-4 flex items-center justify-center gap-x-2 text-sm font-semibold rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition duration-300 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-offset-gray-800"
+                >
+                  <img src="{{ asset('images/google.png') }}" alt="Google" class="w-6 h-6">
+                  Continue with Google
+                </a>
             </div>
           </form>
           <!-- End Form -->
