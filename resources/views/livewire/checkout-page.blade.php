@@ -82,6 +82,11 @@
 									<option value="N/A">None</option>
 									<!-- Add more departments as needed -->
 								</select>
+								@error('department')
+								<div class="text-red-500 tesxt-sm">
+									{{$message}}
+								</div>
+								@enderror
 							</div>
 							<div>
 								<label class="block text-gray-700 dark:text-white mb-1" for="first_name">
@@ -90,6 +95,11 @@
 								<select wire:model="course" id="course" class="w-full rounded-lg border py-2 px-3 dark:bg-gray-700 dark:text-white dark:border-none">
 									<option value="" disabled selected>Select a course</option>
 								</select>
+								@error('course')
+								<div class="text-red-500 tesxt-sm">
+									{{$message}}
+								</div>
+								@enderror
 							</div>
 							<div>
 								<label class="block text-gray-700 dark:text-white mb-1" for="last_name">
