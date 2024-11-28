@@ -21,5 +21,26 @@
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   
         <x-livewire-alert::scripts />
+        <script>
+            var botmanWidget = {
+                aboutText: 'Start the conversation with Hi',
+                introMessage: "HI MY NAME IS SPARTAN BOTMAN"
+            };
+          </script>
+          <script src="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js"></script>
+          <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                if (typeof BotManWidget !== 'undefined') {
+                    BotManWidget.init();
+                }
+            });
+        
+            // Reload bot widget after any significant Livewire update
+            document.addEventListener('livewire:update', function () {
+                if (typeof BotManWidget !== 'undefined') {
+                    BotManWidget.init();
+                }
+            });
+        </script>
     </body>
 </html>

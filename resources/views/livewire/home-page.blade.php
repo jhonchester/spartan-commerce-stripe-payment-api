@@ -117,8 +117,112 @@
 
 </div>
 
+{{--featured --}}
+<div class="bg-violet-200 py-20">
+  <div class="max-w-xl mx-auto">
+    <div class="text-center">
+      <div class="relative flex flex-col items-center">
+        <h1 class="text-5xl font-bold dark:text-gray-200">Featured <span class="text-blue-500">Products</span></h1>
+        <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
+          <div class="flex-1 h-2 bg-blue-200"></div>
+          <div class="flex-1 h-2 bg-blue-400"></div>
+          <div class="flex-1 h-2 bg-blue-600"></div>
+        </div>
+      </div>
+      <p class="mb-12 text-base text-center text-gray-500">
+        Show your Spartan pride with our exclusive collection of university apparel and merchandise. From stylish t-shirts to accessories like caps and tote bags, we have everything you need to represent Spartan Commerce University. Perfect for students, faculty, alumni, and supporters, our high-quality gear is designed for comfort, style, and school spirit. Shop now and wear your pride wherever you go!
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+    <!-- Grid with 5 items per row -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+      @foreach ($products as $product)
+      <div class="w-full">
+        <div class="border border-gray-300 dark:border-gray-700 rounded-lg shadow-lg overflow-hidden flex flex-col">
+          <!-- Fixed image size -->
+          <div class="relative bg-gray-200">
+            <a href="/products/{{$product->slug}}">
+              <img src="{{url('storage', $product->images[0])}}" alt="{{$product->name}}"
+                   class="w-full h-64 object-cover transition-transform duration-300 ease-in-out transform hover:scale-105">
+            </a>
+          </div>
+          <div class="p-4 flex-1 flex flex-col">
+            <div class="mb-2">
+              <h3 class="text-xl font-medium dark:text-gray-400">
+                {{$product->name}}
+              </h3>
+            </div>
+            <p class="text-lg font-semibold text-green-600 dark:text-green-600 mb-4">
+              {{Number::currency($product->price, 'PHP')}}
+            </p>
+            <div class="mt-auto flex justify-center border-t pt-2 border-gray-300 dark:border-gray-700">
+              <a wire:click.prevent="addToCart({{$product->id}})" href="#" class="text-gray-500 flex items-center space-x-2 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 bi bi-cart3" viewBox="0 0 16 16">
+                  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                </svg>
+                <span wire:loading.remove wire:target="addToCart({{$product->id}})">Add to Cart</span>
+                <span wire:loading wire:target="addToCart({{$product->id}})">Adding...</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      @endforeach
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="bg-green-200 py-20">
+  <div class="max-w-xl mx-auto">
+    <div class="text-center ">
+      <div class="relative flex flex-col items-center">
+        <h1 class="text-5xl font-bold dark:text-gray-200"> Come and  <span class="text-blue-500"> Visit Us </span> </h1>
+        <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
+          <div class="flex-1 h-2 bg-blue-200"></div>
+          <div class="flex-1 h-2 bg-blue-400"></div>
+          <div class="flex-1 h-2 bg-blue-600"></div>
+        </div>
+      </div>
+      <p class="mb-12 text-base text-center text-gray-500">
+        Locate Spartan Commerce easily using the map below. Visit us for personalized assistance and explore our offerings in person.  
+      </p>
+      <div class="mt-5 mb-10">
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          <strong class="text-gray-700 dark:text-gray-400">Address:</strong> Batangas State University JPLPC-Malvar, Malvar, Batangas, Philippines
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          <strong class="text-gray-700 dark:text-gray-400">Contact:</strong> (+63) 912 345 6789
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="flex justify-center">
+      <iframe
+        class="w-[600px] h-[400px] rounded-md shadow-lg"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.54531851308!2d121.15337827491302!3d14.044944786378226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd6ed9735068d7%3A0x97fd25b226e150e7!2sBatangas%20State%20University%20Jose%20P.%20Laurel%20Polytechnic%20College!5e0!3m2!1sen!2sph!4v1732764640588!5m2!1sen!2sph"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
 {{--devs--}}
-<section class="py-14 font-poppins dark:bg-gray-800">
+<section class="py-14 bg-gray-200 font-poppins dark:bg-gray-800">
   <div class="max-w-6xl px-4 py-6 mx-auto lg:py-4 md:px-6">
     <div class="max-w-xl mx-auto">
       <div class="text-center ">
@@ -227,45 +331,8 @@
     </div>
  
   </div>
-  <div class="bg-green-200 py-20">
-    <div class="max-w-xl mx-auto">
-      <div class="text-center ">
-        <div class="relative flex flex-col items-center">
-          <h1 class="text-5xl font-bold dark:text-gray-200"> Come and  <span class="text-blue-500"> Visit Us </span> </h1>
-          <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
-            <div class="flex-1 h-2 bg-blue-200"></div>
-            <div class="flex-1 h-2 bg-blue-400"></div>
-            <div class="flex-1 h-2 bg-blue-600"></div>
-          </div>
-        </div>
-        <p class="mb-12 text-base text-center text-gray-500">
-          Locate Spartan Commerce easily using the map below. Visit us for personalized assistance and explore our offerings in person.  
-        </p>
-        <div class="mt-5 mb-10">
-          <p class="text-sm text-gray-500 dark:text-gray-400">
-            <strong class="text-gray-700 dark:text-gray-400">Address:</strong> Batangas State University JPLPC-Malvar, Malvar, Batangas, Philippines
-          </p>
-          <p class="text-sm text-gray-500 dark:text-gray-400">
-            <strong class="text-gray-700 dark:text-gray-400">Contact:</strong> (+63) 912 345 6789
-          </p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
-      <div class="flex justify-center">
-        <iframe
-          class="w-[600px] h-[400px] rounded-md shadow-lg"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.54531851308!2d121.15337827491302!3d14.044944786378226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd6ed9735068d7%3A0x97fd25b226e150e7!2sBatangas%20State%20University%20Jose%20P.%20Laurel%20Polytechnic%20College!5e0!3m2!1sen!2sph!4v1732764640588!5m2!1sen!2sph"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-        
-      </div>
-    </div>
-  </div>
   
 
 </section>
+
 </div>

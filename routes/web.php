@@ -59,3 +59,4 @@ Route::get('/check-env', function () {
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
 
+Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');
