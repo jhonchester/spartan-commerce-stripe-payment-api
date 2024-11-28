@@ -117,7 +117,7 @@
 
 </div>
 
-{{--Customer review--}}
+{{--devs--}}
 <section class="py-14 font-poppins dark:bg-gray-800">
   <div class="max-w-6xl px-4 py-6 mx-auto lg:py-4 md:px-6">
     <div class="max-w-xl mx-auto">
@@ -225,8 +225,47 @@
       </div>
         
     </div>
-  
-  
+ 
   </div>
+  <div class="bg-green-200 py-20">
+    <div class="max-w-xl mx-auto">
+      <div class="text-center ">
+        <div class="relative flex flex-col items-center">
+          <h1 class="text-5xl font-bold dark:text-gray-200"> Come and  <span class="text-blue-500"> Visit Us </span> </h1>
+          <div class="flex w-40 mt-2 mb-6 overflow-hidden rounded">
+            <div class="flex-1 h-2 bg-blue-200"></div>
+            <div class="flex-1 h-2 bg-blue-400"></div>
+            <div class="flex-1 h-2 bg-blue-600"></div>
+          </div>
+        </div>
+        <p class="mb-12 text-base text-center text-gray-500">
+          Locate Spartan Commerce easily using the map below. Visit us for personalized assistance and explore our offerings in person.  
+        </p>
+        <div class="mt-5 mb-10">
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            <strong class="text-gray-700 dark:text-gray-400">Address:</strong> Batangas State University JPLPC-Malvar, Malvar, Batangas, Philippines
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            <strong class="text-gray-700 dark:text-gray-400">Contact:</strong> (+63) 912 345 6789
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+      <div class="flex justify-center">
+        <iframe
+          class="w-[600px] h-[400px] rounded-md shadow-lg"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3870.54531851308!2d121.15337827491302!3d14.044944786378226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd6ed9735068d7%3A0x97fd25b226e150e7!2sBatangas%20State%20University%20Jose%20P.%20Laurel%20Polytechnic%20College!5e0!3m2!1sen!2sph!4v1732764640588!5m2!1sen!2sph"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        
+      </div>
+    </div>
+  </div>
+  
+
 </section>
 </div>

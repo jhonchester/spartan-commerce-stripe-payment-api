@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GoogleAuthController;
 use App\Http\Livewire\MyAccount;
 
 use App\Livewire\Auth\ForgotPasswordPage;
@@ -55,4 +56,6 @@ Route::get('/check-env', function () {
     return env('APP_ENV');
 });
 
+Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
+Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
 
