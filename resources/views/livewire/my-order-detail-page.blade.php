@@ -198,6 +198,58 @@
         </table>
       </div>
 
+      <!-- review-->
+      <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4">
+        <h1 class="font-3xl font-bold text-slate-500 mb-3">Review</h1>
+        
+        <!-- Loop through each order item -->
+        <div>
+            @foreach ($order_items as $item)
+                <div class="flex justify-between items-center mb-3">
+                    <!-- Product Name -->
+                    <p class="flex-grow text-sm text-gray-700">{{ $item->product->name }}</p>
+    
+                    <!-- Star Rating -->
+                    <div class="flex items-center space-x-1">
+                      @for ($i = 1; $i <= 5; $i++) <!-- Loop 5 times for 5 stars -->
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                               fill="{{ isset($productRatings[$item->product->name]) && $productRatings[$item->product->name] >= $i ? 'yellow' : 'gray' }}"
+                               viewBox="0 0 24 24" class="star cursor-pointer"
+                               wire:click="setRating({{ $i }}, '{{ $item->product->name }}', '{{ $order_id }}')">
+                              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                          </svg>
+                      @endfor
+                  </div>
+                </div>
+    
+               
+            @endforeach
+        </div>
+    
+        <!-- Textarea for Review -->
+        <div class="mt-4">
+            @foreach ($order_items as $item)
+                <textarea class="w-full p-4 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                          placeholder="Leave your review here..."
+                          rows="4"
+                          wire:model="productReviews.{{ $item->product->name }}"></textarea>
+            @endforeach
+        </div>
+    
+        <!-- Button to Submit Review -->
+        <div class="mt-4">
+            <button wire:click="submitReview" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Submit Review</button>
+        </div>
+      </div>
+    
+    
+    
+    
+
+
+
+
+
       <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4">
         <h1 class="font-3xl font-bold text-slate-500 mb-3">RGO Location</h1>
         <div class="flex justify-between items-center">

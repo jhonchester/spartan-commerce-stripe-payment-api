@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GoogleAuthController;
+
 use App\Http\Livewire\MyAccount;
 
 use App\Livewire\Auth\ForgotPasswordPage;
@@ -60,3 +61,5 @@ Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('goog
 Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
 
 Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotManController@handle');
+
+
