@@ -1,25 +1,25 @@
-<?php
-
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+<?php 
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration
+class AddOrderDateToOrdersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up()
-{
-    Schema::table('orders', function (Blueprint $table) {
-        $table->date('claim_date')->nullable(); // Add the claim_date column
-    });
-}
+    {
+        if (!Schema::hasColumn('orders', 'claim_date')) {
+            Schema::table('orders', function (Blueprint $table) {
+                $table->date('claim_date')->nullable();
+            });
+        }
+    }
 
-public function down()
-{
-    Schema::table('orders', function (Blueprint $table) {
-        $table->dropColumn('claim_date');
-    });
+    public function down()
+    {
+        if (Schema::hasColumn('orders', 'claim_date')) {
+            Schema::table('orders', function (Blueprint $table) {
+                $table->dropColumn('claim_date');
+            });
+        }
+    }
 }
-};

@@ -6,10 +6,12 @@ use App\Models\OrderItem;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Carbon\Carbon;
+use Jantinnerezo\LivewireAlert\LivewireAlert; 
 
 #[Title('My Order Detail | Spartan Commerce')]
 class MyOrderDetailPage extends Component
 {
+    use LivewireAlert;
     public $order_id;
     public $rating = 0; // Store the selected rating
     public $productRatings = [];
@@ -61,33 +63,34 @@ class MyOrderDetailPage extends Component
     $xml->asXML($filePath);
 }
 
-    public function mount($order_id)
-    {
-        $this->order_id = $order_id;
-        $filePath = storage_path('app/ratings.xml');
+public function mount($order_id)
+{
+    $this->order_id = $order_id;
+    $filePath = storage_path('app/ratings.xml');
 
-        $productRatings = [];
-        $productReviews = []; // Initialize array for product reviews
+    $productRatings = [];
+    $productReviews = []; // Initialize array for product reviews
 
-        if (file_exists($filePath) && filesize($filePath) > 0) {
-            // Load existing XML if the file exists
-            $xml = simplexml_load_file($filePath);
+    if (file_exists($filePath) && filesize($filePath) > 0) {
+        // Load existing XML if the file exists
+        $xml = simplexml_load_file($filePath);
 
-            // Loop through all ratings in the XML and store them in arrays
-            foreach ($xml->rating as $ratingItem) {
-                if ((string) $ratingItem->order_id === $this->order_id) {
-                    $productRatings[(string) $ratingItem->product] = (int) $ratingItem->rating_value;
-                    $productReviews[(string) $ratingItem->product] = (string) $ratingItem->review; // Store the review text
-                }
+        // Loop through all ratings in the XML and store them in arrays
+        foreach ($xml->rating as $ratingItem) {
+            // Check if the order ID matches and populate the product's ratings and reviews
+            if ((string) $ratingItem->user_name === auth()->user()->name) {
+                $productRatings[(string) $ratingItem->product] = (int) $ratingItem->rating_value;
+                $productReviews[(string) $ratingItem->product] = (string) $ratingItem->review;
             }
         }
-
-        $this->productRatings = $productRatings;
-        $this->productReviews = $productReviews; // Pass product reviews to the view
-
-        // Retrieve order items for the order_id
-        $this->order_items = OrderItem::with('product')->where('order_id', $this->order_id)->get();
     }
+
+    $this->productRatings = $productRatings;
+    $this->productReviews = $productReviews; // Pass product reviews to the view
+
+    // Retrieve order items for the order_id
+    $this->order_items = OrderItem::with('product')->where('order_id', $this->order_id)->get();
+}
 
     public function submitReview()
 {
@@ -99,8 +102,19 @@ class MyOrderDetailPage extends Component
         // Use productReviews for each product to store the review and rating
         $this->setRating($this->productRatings[$item->product->name] ?? 0, $item->product->name);
     }
+    $this->alert('success', 'Review submitted successfully!');
 }
-
+public function getCanSubmitReviewProperty()
+{
+    // Check if all items have both a rating and a review
+    foreach ($this->order_items as $item) {
+        // Check if either the rating or review is empty for any item
+        if (empty($this->productRatings[$item->product->name]) || empty($this->productReviews[$item->product->name])) {
+            return false;
+        }
+    }
+    return true;
+}
     public function render()
     {
         $order = Order::where('id', $this->order_id)->first();
