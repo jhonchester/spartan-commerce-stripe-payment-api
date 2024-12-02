@@ -18,10 +18,14 @@ class MyOrderDetailPage extends Component
     public $productReviews = []; // Declare the productReviews property
 
     // Method to update the rating and save to XML
-    public function setRating($rating, $productName, $orderId)
+    public function setRating($rating, $productName)
 {
-    $this->rating = $rating;
+    //$this->rating = $rating;
+    //$this->review = $this->productReviews[$productName] ?? '';
+
+    $this->productRatings[$productName] = $rating;
     $this->review = $this->productReviews[$productName] ?? '';
+    
     $user = auth()->user(); 
 
     $filePath = storage_path('app/ratings.xml');
@@ -34,7 +38,8 @@ class MyOrderDetailPage extends Component
 
     $existingRating = false;
     foreach ($xml->rating as $ratingItem) {
-        if ((string) $ratingItem->order_id === $orderId && (string) $ratingItem->product === $productName) {
+        // (string) $ratingItem->order_id === $orderId && 
+        if ((string) $ratingItem->product === $productName) {
             $ratingItem->rating_value = $rating;
             $ratingItem->review = $this->review;
             $ratingItem->user_name = $user->name;
@@ -45,7 +50,7 @@ class MyOrderDetailPage extends Component
 
     if (!$existingRating) {
         $orderRating = $xml->addChild('rating');
-        $orderRating->addChild('order_id', $orderId);
+       // $orderRating->addChild('order_id', $orderId);
         $orderRating->addChild('product', $productName);
         $orderRating->addChild('rating_value', $rating);
         $orderRating->addChild('review', $this->review);
@@ -92,7 +97,7 @@ class MyOrderDetailPage extends Component
     // Save the review for each item
     foreach ($this->order_items as $item) {
         // Use productReviews for each product to store the review and rating
-        $this->setRating($this->productRatings[$item->product->name] ?? 0, $item->product->name, $this->order_id);
+        $this->setRating($this->productRatings[$item->product->name] ?? 0, $item->product->name);
     }
 }
 

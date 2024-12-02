@@ -204,27 +204,25 @@
         
         <!-- Loop through each order item -->
         <div>
-            @foreach ($order_items as $item)
-                <div class="flex justify-between items-center mb-3">
-                    <!-- Product Name -->
-                    <p class="flex-grow text-sm text-gray-700">{{ $item->product->name }}</p>
+          @foreach ($order_items as $item)
+              <div class="flex justify-between items-center mb-3">
+                  <!-- Product Name -->
+                  <p class="flex-grow text-sm text-gray-700">{{ $item->product->name }}</p>
     
-                    <!-- Star Rating -->
-                    <div class="flex items-center space-x-1">
+                  <!-- Star Rating -->
+                  <div class="flex items-center space-x-1">
                       @for ($i = 1; $i <= 5; $i++) <!-- Loop 5 times for 5 stars -->
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
                                fill="{{ isset($productRatings[$item->product->name]) && $productRatings[$item->product->name] >= $i ? 'yellow' : 'gray' }}"
                                viewBox="0 0 24 24" class="star cursor-pointer"
-                               wire:click="setRating({{ $i }}, '{{ $item->product->name }}', '{{ $order_id }}')">
+                               wire:click="setRating({{ $i }}, '{{ $item->product->name }}')">
                               <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                           </svg>
                       @endfor
                   </div>
-                </div>
-    
-               
-            @endforeach
-        </div>
+              </div>
+          @endforeach
+      </div>
     
         <!-- Textarea for Review -->
         <div class="mt-4">
